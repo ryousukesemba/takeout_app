@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="./styles/share.css">
+    <link rel="stylesheet" href="./styles/order.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <a href="menu_detail.html" class = "backBtn">
+            <img src="./images/back.png" alt="">
+    </a>
+    <div class="page"></div>
+        <header class = "header">
+            <p>ご注文確認</p>
+        </header>
+
+        <div class="page_inner"id = "app">
+            <div class="food_item_list">
+                <div class="food_item" v-for="(menuItem ,index) in menus">
+                    <div class="food_item_left">
+                        <img v-bind:src="menuItem.thumb_url" class="food_item_left_img">
+                    </div>
+                    <div class="food_item_right">
+                        <div class="food_item_right_top">
+                            <div class="food_item_right_left">
+                                <p class="food_alert_menuname">{{menuItem.name}}</p>
+                                <p class="food_list_price"><span class = "food_item_yen">¥</span>{{inOptionPrice}}{{menuItem.SumOption}}</p>
+                            </div>
+                            <div class="food_item_right_right">
+                                <div class="menu_d_count_wrap">
+                                    <div class="menu_d_count_left" v-on:click="click_count_down(index)">
+                                        −
+                                    </div>
+                                    <div class="menu_d_count_middle">
+                                        <input type="text" disabled="disabled" value="" v-model="menuItem.count_number" style="opacity: 1;">
+                                    </div>
+                                    <div class="menu_d_count_right" v-on:click="click_count_up(index)">
+                                        +
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="food_item_right_bottom">
+                            <p class="option_text"><span v-for="optionItem in menuItem.option">{{optionItem.optionName}}:{{optionItem.selectedOption}}/</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sum_price_wrap">
+                <hr>
+                <div class="nontax_price">
+                    <p>小計</p>
+                    <p>¥{{nontaxPrice}}</p>
+                </div>
+                <div class="tax_price">
+                    <p>税</p>
+                    <p>¥{{taxPrice}}</p>
+                </div>
+                <hr>
+                <div class="total_price">
+                    <p>合計</p>
+                    <p>¥{{totalPrice}}</p>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="pagebottom_link">
+            注文する
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                menus: [
+                    {
+                        name: "チョリソーとモッツァレラ",
+                        price:1200,
+                        SumOption: 0,
+                        count_number: 1,
+                        thumb_url: "./images/BLT.jpg",
+                        option: [
+                            {   
+                                optionName: "サイズ" ,
+                                selectedOption: "大盛り",
+                                optionPrice: 100
+
+                            },
+                            {   
+                                optionName: "辛さ" ,
+                                selectedOption: "普通",
+                                optionPrice: 200
+                            }
+                        ]
+                    },
+                    {
+                        name: "チョリソーとモッツァレラ",
+                        price:1000,
+                        SumOption: 0,
+                        count_number: 1,
+                        thumb_url: "./images/BLT.jpg",
+                        option: [
+                            {   
+                                optionName: "サイズ" ,
+                                selectedOption: "大盛り",
+                                optionPrice: 100
+                            },
+                            {   
+                                optionName: "辛さ" ,
+                                selectedOption: "普通",
+                                optionPrice: 200
+                            }
+                        ]
+                    },
+                    {
+                        name: "チョリソーとモッツァレラ",
+                        price:1000,
+                        SumOption: 0,
+                        count_number: 1,
+                        thumb_url: "./images/BLT.jpg",
+                        option: [
+                            {   
+                                optionName: "サイズ" ,
+                                selectedOption: "大盛り",
+                                optionPrice: 100
+                            },
+                            {   
+                                optionName: "辛さ" ,
+                                selectedOption: "普通",
+                                optionPrice: 200
+                            }
+                        ]
+                    },
+                ],
+            },
+            methods:{
+                click_count_up: function(index){
+                    this.menus[index].count_number++;
+                },
+                click_count_down: function(index){
+                    if (this.menus[index].count_number == 0) return;
+                    this.menus[index].count_number--;
+                 }
+            },
+            computed: {
+                inOptionPrice: function (nontaxPrice,taxPrice,index) {
+                    var inOptionPrice = 0
+                    for (var i = 0; i < this.menus.length; i++){
+                        for (var op_num = 0; op_num < this.menus[i].option.length; op_num++){
+                                this.menus[i].SumOption += this.menus[i].option[op_num].optionPrice
+                        }
+                        this.menus[i].SumOption += this.menus[i].price
+                    }
+                },
+                nontaxPrice: function () {
+                    var nontaxPrice = 0;
+                    for (var i = 0; i < this.menus.length; i++){
+                        if(this.menus[i].count_number !== 1){
+                            nontaxPrice += this.menus[i].SumOption * this.menus[i].count_number
+                        }else{
+                            nontaxPrice += this.menus[i].SumOption
+                        }
+                    }
+                    return nontaxPrice
+                },
+                taxPrice: function (nontaxPrice) {
+                    var taxPrice = this.nontaxPrice * 0.1
+                    return taxPrice
+                },
+                totalPrice: function (nontaxPrice,taxPrice) {
+                    var totalPrice
+                    return totalPrice = this.nontaxPrice + this.taxPrice
+                },
+                //inOptionlPrice: function (nontaxPrice,taxPrice,index) {
+                    
+
+                    //for (var i = 0;i < this.menus.length;i++){
+                        //for (var op_num = 0; op_num < this.menus[i].option.length;op_num++){
+                       //     this.menus[i].SumOption += this.menus[i].option[op_num].optionPrice
+                     //   }
+                   // }
+                //},
+            },
+            filters: {
+                numberCeil(value){
+                    return value.toFixed()
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+@media screen and (max-width: 768px){
+	.menu_d_top{
+	}
+	.menu_d_top_img{
+		width: 100%;
+		height: 350px;
+
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+
+
+	.menu_d_bottom{
+		padding-top: 30px;
+		padding-left: 30px;
+		padding-right: 30px;
+
+		padding-bottom: 108px;
+
+		background-color: #fff;
+		border-radius: 36px;
+		margin-top: -36px;
+	}
+	.menu_d_bottom_border{
+		width: 36px;
+		height: 2px;
+		background-color: #FF5400;
+	}
+	.menu_d_bottom_foodname{
+		font-size: 20px;
+		font-weight: bold;
+
+		padding-top: 13px;
+		padding-bottom: 20px;
+	}
+	.menu_d_bottom_desc{
+		font-size: 12px;
+		color: #777777;
+		font-weight: normal;
+		line-height: 1.8em;
+	}
+	.option_berder{
+		margin-top: 24px;
+		margin-bottom: 24px;
+		height: 1px;
+	}
+	.option_group{
+	}
+	.option_name{
+	}
+	.option_select_box{
+		background-color: #FAFAFA;
+		padding: 16px;
+	}
+	.option_select_box > * + * {
+		margin-top: 18px;
+	}
+	.option_select_item{
+
+		color: #A0ADC7;
+		font-weight: normal;
+	}
+	.menu_d_radio{
+		margin: 0px 0px 0px 0px !important;
+	}
+	.option_select_item_name{
+		
+	}
+	.option_select_item_left{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.menu_in_option{
+		justify-content: space-between;
+	}
+	.option_select_item_price{
+
+	}
+	
+	.menu_d_linkwrap{
+		display: flex;
+
+		width: 100vw;
+
+		position: fixed;
+        bottom: 0;
+        left: 0;
+
+        box-shadow: 0px -2px 15px #00000029;
+	}
+	.menu_d_totalprice{
+		min-width: 150px;
+		height: 64px;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		font-size: 24px;
+
+		background-color: #fff;
+	}
+	.menu_d_totalprice_yen{
+		font-size: 16px;
+		padding-right: 4px;
+	}
+	.menu_d_pagebottom_link{
+		width: 100%;
+        height: 64px;
+
+        background-color: #FF5400;
+        color: #fff;
+        font-weight: bold;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        text-decoration: none;
+	}
+
+	.menu_d_count_wrap{
+		display: flex;
+		align-items: center;
+		width: 200px;
+		margin: 0 auto;
+
+		margin-top: 40px;
+	}
+	.menu_d_count_left,
+	.menu_d_count_right{
+		width: 30px;
+		height: 30px;
+		border: 1px solid #FF5400;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		font-size: 16px;
+		border-radius: 50%;
+		color: #FF5400;
+	}
+	.menu_d_count_middle{
+		width: 100px;
+		height: 55px;
+		background-color: #FFEFE6;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		margin: 0 20px;
+
+		border-radius: 12px;
+	}
+	input[type="text"]{
+		padding: 0em 0em !important;
+		background-color: transparent !important;
+
+		text-align: center;
+
+		font-size: 24px !important;
+		color: initial;
+	}
+	input[type="radio"]:checked + .option_select_item_text_box{
+		color:  initial;
+	}
+	input[type="checkbox"]:checked + .option_select_item_text_box{
+		color:  initial;
+	}
+
+
+	.option_select_item_left{
+		width: 100%;
+	}
+	.option_select_item_text_box{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		width: 100%;
+	}
+	
+	input[type="radio"]{
+		display: none;
+	}
+	input[type="checkbox"]{
+		display: none;
+	}
+	.option_select_item_text_box{
+		position: relative;
+		cursor: pointer;
+		margin-left: 20px;
+		padding: 10px 20px;
+		border-radius: 2px;
+		font-size: 14px;
+		line-height: 1;
+	}
+	.option_select_item_text_box:before{
+		position: absolute;
+		content: "";
+		top: 50%;
+		left: -10px;
+		width: 20px;
+		height: 20px;
+		margin-top: -10px;
+		background: #fff;
+		border: 1px solid #A0ADC7;
+		border-radius: 50%;
+	}
+	.option_select_item_left input[type="radio"]:checked + .option_select_item_text_box:after {
+		position: absolute;
+		content: "";
+		top: 48%;
+		left: -5px;
+		width: 10px;
+		height: 10px;
+		margin-top: -4px;
+		border-radius: 50%;
+		background: #fff;
+	}
+
+	.option_select_item_left input[type="radio"]:checked + .option_select_item_text_box:before {
+		background: #FF5400;
+		border: none;
+	}
+
+	.option_select_item_left input[type="checkbox"]:checked + .option_select_item_text_box:after {
+		position: absolute;
+		content: "";
+		top: 48%;
+		left: -5px;
+		width: 10px;
+		height: 10px;
+		margin-top: -4px;
+		border-radius: 50%;
+		background: #fff;
+	}
+	.option_select_item_left input[type="checkbox"]:checked + .option_select_item_text_box:before {
+		background: #FF5400;
+		border: none;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

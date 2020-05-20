@@ -1,0 +1,156 @@
+.food_item_list > * + * {
+        margin-top: 24px;
+    }
+    .food_item{
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border-radius: 19px;
+
+        display: flex;
+        text-decoration: none;
+    }
+    .food_item_left{
+        width: 70px;
+        height: 70px;
+    }
+    .food_item_left_img{
+         width: 70px;
+        height: 70px;
+
+        border-radius: 14px;
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .food_item_right{
+        width: 100%;
+        padding-left: 8px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .food_item_right_top{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        
+    }
+    .food_item_right_left{
+        flex: none;
+    }
+
+    .option_text{
+        line-height: 25px;
+        background-color: #FAFAFA;
+        color: #6E6E6E;
+        font-size: 10px;
+
+        padding-left: 8px;
+        overflow: hidden;
+    }
+
+
+    .food_alert_label{
+        font-size: 10px;
+        color: #FF5400;
+    }
+
+    .food_alert_menuname{
+        font-size: 13px;
+        font-weight: bold;
+        color: initial;
+    }
+
+    .food_list_price{
+        font-size: 12px;
+        color: #FF5400;
+        font-weight: bold;
+    }
+
+    .food_item_yen{
+        font-size: 14px;
+    }
+
+    .menu_d_count_wrap{
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .menu_d_count_left,
+    .menu_d_count_right{
+        width: 20px;
+        height: 20px;
+        border: 1px solid #FF5400;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 11px;
+        border-radius: 50%;
+        color: #FF5400;
+    }
+    .menu_d_count_middle{
+        width: 20px;
+        height: 30px;
+        background-color: #FFEFE6;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin: 0 6px;
+
+        border-radius: 6px;
+    }
+    input[type="text"]{
+        padding: 0em 0em !important;
+        background-color: transparent !important;
+
+        text-align: center;
+
+        font-size: 14px !important;
+
+        color: initial;
+    }
+    
+    .sum_price_wrap{
+        margin-top: 40px;
+    }
+
+    .nontax_price,
+    .tax_price{
+        color: #A5A5A5;
+        line-height: 2em;
+
+        display: flex;
+        justify-content: space-between;
+    }
+    .total_price{
+        display: flex;
+        justify-content: space-between;
+        line-height: 2em;
+        font-weight: bold;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

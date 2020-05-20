@@ -1,0 +1,110 @@
+@media screen and (max-width: 768px){
+    .menu_category{
+        padding-left: 30px;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        overflow-x: scroll;
+
+        margin-bottom: 20px;
+    }
+    .menu_category_wrap{
+        display: flex;
+    }
+
+    .needtime{
+        position: absolute;
+        bottom: 0px;
+        
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+
+        width: 100%;
+    }
+    .needtime_text{
+        font-size: 11px;
+        color: #A0ADC7;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .menu_category_item{
+        list-style: none;
+
+        text-align: center;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 6px;
+
+        flex: none;
+
+        border-bottom: 2px solid #A0ADC7;
+    }
+
+
+    .menu_category_item.active{
+        border-bottom: 2px solid #FF5400;
+    }
+    .food_item_list > * + * {
+        margin-top: 24px;
+    }
+    .food_item{
+        height: 110px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        box-shadow: 0px 0px 8px #00000029;
+        border-radius: 19px;
+
+        padding: 5px;
+
+        display: flex;
+        text-decoration: none;
+    }
+    .food_item_left{
+        width: 100px;
+        height: 100px;
+    }
+    .food_item_left_img{
+         width: 100px;
+        height: 100px;
+
+        border-radius: 14px;
+
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .food_item_right{
+        display: flex;
+        flex-direction: column;
+
+
+        position: relative;
+        padding-left: 10px;
+        padding-top: 12px;
+    }
+    .food_alert_label{
+        font-size: 10px;
+        color: #FF5400;
+    }
+    .food_alert_menuname{
+        font-size: 14px;
+        font-weight: bold;
+        color: initial;
+    }
+    .food_list_price{
+        font-size: 18px;
+        text-align: right;
+
+        color: #FF5400;
+        font-weight: bold;
+    }
+    .food_item_yen{
+        font-size: 14px;
+    }
+}

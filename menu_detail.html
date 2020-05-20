@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/share.css">
+    <link rel="stylesheet" href="./styles/menu_detail.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html" class = "backBtn">
+            <img src="./images/back.png" alt="">
+    </a>
+    <div class="page"></div>
+        <div class="menu_d_top">
+            <div class="menu_d_top_img"style="background-image: url('./images/BLT.jpg')">
+            </div>
+        </div>
+        <div class="menu_d_bottom" id="app">
+            <div class="menu_d_bottom_border"></div>
+            <div class="menu_d_bottom_foodname">{{foodName}}</div>
+            <div class="menu_d_bottom_desc">
+                {{foodDescription}}
+            </div>
+            <hr class="option_berder" color="#EAEAEA">
+            <div class="option_group" v-for="(optionItem , index) in options">
+                <p class="option_name">{{optionItem.optionName}}:</p>
+                <div class="option_select_box">
+                    <!-- <div class="option_select_item" v-for="(optionlistItem , index) in optionItem.optionLists">
+                        <input type="radio" class="menu_d_radio" name = "option1" value="">
+                        <p class="option_select_item_name">{{optionlistItem.optionLabel}}</p>
+                    </div>
+                    -->
+
+                    <div class="option_select_item menu_in_option" v-for="(optionlistItem , idx) in optionItem.optionsLists">
+                        <label class="option_select_item_left">
+                            <input type="radio" class="menu_d_radio" :name = "'option' + index" :value="optionlistItem.optionPrice" v-model="optionItem.selectedOptionPrice">
+                            <span class="option_select_item_text_box">
+                                <p class="option_select_item_name" >{{optionlistItem.optionLabel}}</p>
+                                <p class="option_select_item_price">+ ¥{{optionlistItem.optionPrice}}</p>
+                            </span>
+                        </label>
+                    </div>
+ <!--
+                    <div class="option_select_item menu_in_option">
+                        <div class="option_select_item_left">
+                            <input type="radio" class="menu_d_radio" name = "option1" value="">
+                            <p class="option_select_item_name">特盛</p>
+                        </div>
+                        <div class="option_select_item_right">
+                            <p class="option_select_item_price">+ ¥100</p>
+                        </div>
+                    </div>
+-->
+                </div>
+                <hr class="option_berder" color="#EAEAEA">
+            </div>
+
+
+            <div class="option_group" v-for="(CheckOptionItem , index) in checkboxOptions">
+                <p class="option_name">{{CheckOptionItem.optionName}}</p>
+                <div class="option_select_box">
+                    <div class="option_select_item menu_in_option">
+                        <label class="option_select_item_left" v-for="(CheckOptionItemElement , idx) in CheckOptionItem.checkboxOptionsLists">
+                            <input type="checkbox" class="menu_d_radio" :value="{id: idx, price: CheckOptionItemElement.optionPrice}" :name = "'checkbox' + idx" v-model="CheckOptionItem.checkedVal">
+                            <span class="option_select_item_text_box">
+                                <p class="option_select_item_name" >{{CheckOptionItemElement.optionLabel}}</p>
+                                <p class="option_select_item_price">+ ¥{{CheckOptionItemElement.optionPrice}}</p>
+                            </span>
+                        </label>
+<!--
+                        <label class="option_select_item_left">
+                            <input type="checkbox" class="menu_d_radio" v-model="checkedVal">
+                            <span class="option_select_item_text_box">
+                                <p class="option_select_item_name" >名前</p>
+                                <p class="option_select_item_price">+ ¥0</p>
+                            </span>
+                        </label>
+
+                        <label class="option_select_item_left">
+                            <input type="checkbox" class="menu_d_radio" v-model="checkedVal">
+                            <span class="option_select_item_text_box">
+                                <p class="option_select_item_name" >名前</p>
+                                <p class="option_select_item_price">+ ¥0</p>
+                            </span>
+                        </label>
+-->
+                    </div>
+ <!--
+                    <div class="option_select_item menu_in_option">
+                        <div class="option_select_item_left">
+                            <input type="radio" class="menu_d_radio" name = "option1" value="">
+                            <p class="option_select_item_name">特盛</p>
+                        </div>
+                        <div class="option_select_item_right">
+                            <p class="option_select_item_price">+ ¥100</p>
+                        </div>
+                    </div>
+-->
+                </div>
+                <hr class="option_berder" color="#EAEAEA">
+            </div>
+            <div class="menu_d_count_wrap">
+                <div class="menu_d_count_left" v-on:click="click_count_down">
+                    −
+                </div>
+                <div class="menu_d_count_middle">
+                    <input type="text" disabled="disabled" value="" v-model="count_number" style="opacity: 1;">
+                </div>
+                <div class="menu_d_count_right" v-on:click="click_count_up">
+                    +
+                </div>
+
+
+                <div class="menu_d_linkwrap">
+                    <p class="menu_d_totalprice"><span class="menu_d_totalprice_yen">¥</span>{{totalPrice}}</p>  
+                    <a href="#" class="menu_d_pagebottom_link">
+                        カートに入れる
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                foodName: "ヤネウラ特製オムライス",
+                foodDescription: "チョリソーとモッツァレラチーズのニョッキ焼きの説明文チョリソーとモッツァレラチーズのニョッキ焼きの説明文チョリソーとモッツァレラチーズのニョッキ焼きの説明文チョリソーとモッツァレラチーズのニョッキ焼きの説明文チョリソーとモッツァレラチーズのニョッキ焼きの説明文チョリソ(無しでも可能)",
+                count_number: 1,
+                price: 1200,
+                options: [
+                    {
+                        optionName: "サイズ",
+                        selectedOptionPrice: 0,
+                        optionsLists: [
+                            {
+                                optionLabel: "普通",
+                                optionPrice: 0,
+                            },
+                            {
+                                optionLabel: "大盛り",
+                                optionPrice: 100,
+                            },
+                            {
+                                optionLabel: "特盛り",
+                                optionPrice: 200,
+                            }
+                        ] 
+                    },
+                    {
+                        optionName: "辛さ",
+                        selectedOptionPrice: 0,
+                        optionsLists: [
+                            {
+                                optionLabel: "普通",
+                                optionPrice: 0,
+                            },
+                            {
+                                optionLabel: "大盛り",
+                                optionPrice: 100,
+                            },
+                            {
+                                optionLabel: "特盛り",
+                                optionPrice: 200,
+                            }
+                        ] 
+                    }
+                ],
+                checkboxOptions: [
+                        {
+                        optionName: "チェックボックス(複数選択可能)",
+                        selectedOptionPrice: 0,
+                        checkedVal: [],
+                        checkboxOptionsLists: [
+                            {   
+                                id:0,
+                                optionLabel: "チェック1",
+                                optionPrice: 0,
+                            },
+                            {   
+                                id:1,
+                                optionLabel: "チェック2",
+                                optionPrice: 100,
+                            },
+                            {
+                                id:2,
+                                optionLabel: "チェック3",
+                                optionPrice: 200,
+                            },
+                            {
+                                id:3,
+                                optionLabel: "チェック4",
+                                optionPrice: 200,
+                            },
+                            {
+                                id:4,
+                                optionLabel: "チェック5",
+                                optionPrice: 100,
+                            },
+                            {
+                                id:5,
+                                optionLabel: "チェック6",
+                                optionPrice: 200,
+                            }
+                        ],
+                    }
+                ]
+            },
+            methods:{
+                click_count_up: function(){
+                    this.count_number++;
+                },
+                click_count_down: function(){
+                    if (this.count_number == 1) return;
+                    this.count_number--;
+                 }
+            },
+            computed: {
+
+                totalPrice: function () {
+                    var optionSum = 0;
+                    for ( var i =0; i < this.options.length;i++){
+                        optionSum += this.options[i].selectedOptionPrice
+                    }
+
+                    var checkboxSumPrice = 0;
+                    for(var i=0;i<this.checkboxOptions[0].checkedVal.length;i++){
+                        checkboxSumPrice += this.checkboxOptions[0].checkedVal[i].price
+                    }
+
+                    return (this.price + optionSum + checkboxSumPrice) * this.count_number 
+                }
+            },
+        });
+    </script>
+</body>
+</html>
+
+

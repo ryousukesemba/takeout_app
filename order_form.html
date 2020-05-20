@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="./styles/share.css">
+    <link rel="stylesheet" href="./styles/order_form.css">
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link href="https://fonts.googleapis.com/css2?family=Muli:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <a href="order.html" class = "backBtn">
+        <img src="./images/back.png" alt="">
+    </a>
+    <div class="page"></div>
+        <header class = "header">
+            <p>受け取り日時の入力</p>
+        </header>
+
+        <div class="page_inner">
+            <div class="alert_nonorder_wrap">
+                <p class="alert_nonorder_main">
+                    まだ注文は確定していません。
+                </p>
+                <p class="alert_nonorder_sub">
+                    下記フォームより日時を選択して<br>
+                    注文を確定してください。
+                </p>
+            </div>
+            <a href="order.html" class = "back_Cart">カートへ戻る</a>
+
+            <hr class="section_border" color="#EAEAEA">
+
+            <div class="order_date_form">
+                <div class="order_date_form_row">
+                    <div class="order_date_form_row_label">お名前</div>
+                    <input type="text" value="">
+                </div>
+
+                <div class="order_date_form_row">
+                    <div class="order_date_form_row_label">電話番号</div>
+                    <input type="text" value="">
+                </div>
+                
+                <div class="order_date_form_flexrow">
+                    <div class="order_date_form_flexrow_left">
+                        <div class="order_date_form_row_label">ご来店日時</div>
+                        <input type="date" value="" min="2020-05-01">
+                    </div>
+
+                    <div class="order_date_form_flexrow_right">
+                        <input type="time" value="" step="900">
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="#" class="pagebottom_link">
+                カートを見る
+            </a>
+        </div>
+    </div>
+</body>
+</html>
