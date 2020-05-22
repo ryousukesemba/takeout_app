@@ -15,100 +15,121 @@
         <header class = "header">
             <p>メニュー選択</p>
         </header>
-        <div id ="app" class="menu_category">
-            <ul　class="menu_category_wrap">
-                <li v-for="(category,index) in categories" class="menu_category_item" v-on:click="change(index)" v-bind:class="{'active': isActive === index}">{{category}}</li>
-            </ul>
-        </div>
+        <div id ="app">
+            <div class="menu_category">
+                <ul　class="menu_category_wrap">
+                    <li v-for="(category,index) in categories" class="menu_category_item" v-on:click="change(index)" v-bind:class="{'active': isActive === index}">{{category}}</li>
+                </ul>
 
-        <div class="page_inner">
-            <div class="food_item_list">
-                <a href="menu_detail.html" class="food_item">
-                    <div class="food_item_left">
-                        <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
-                    </div>
-                    <div class="food_item_right">
-                        <p class="food_alert_label">1日10食限定</p>
-                        <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
-                        <div class="needtime">
-                            <p class="needtime_text"><span>出来上がりの目安:</span>40分</p>
-                            <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
+            </div>
+            <div class="page_inner">
+                <div class="food_item_list" v-if="isActive === 0">
+                    <a href="menu_detail.html" class="food_item">
+                        <div class="food_item_left">
+                            <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
                         </div>
+                        <div class="food_item_right">
+                            <p class="food_alert_label">1日10食限定</p>
+                            <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
+                            <div class="needtime">
+                                <p class="needtime_text"><span>出来上がりの目安:</span>40分</p>
+                                <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
+                            </div>
 
-                    </div>
-                </a>
-
-                <a href="menu_detail.html" class="food_item">
-                    <div class="food_item_left">
-                        <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
-                    </div>
-                    <div class="food_item_right">
-                        <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
-                        <div class="needtime">
-                            <p class="needtime_text"><span>出来上がりの目安:</span>40~50分</p>
-                            <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
                         </div>
+                    </a>
 
-                    </div>
-                </a>
-
-                <a href="menu_detail.html" class="food_item">
-                    <div class="food_item_left">
-                        <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
-                    </div>
-                    <div class="food_item_right">
-                        <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
-                        <div class="needtime">
-                            <p class="needtime_text"><span>出来上がりの目安:</span>40~50分</p>
-                            <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
+                    <a href="menu_detail.html" class="food_item">
+                        <div class="food_item_left">
+                            <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
                         </div>
+                        <div class="food_item_right">
+                            <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
+                            <div class="needtime">
+                                <p class="needtime_text"><span>出来上がりの目安:</span>40~50分</p>
+                                <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
+                            </div>
 
-                    </div>
-                </a>
-
-                <a href="menu_detail.html" class="food_item">
-                    <div class="food_item_left">
-                        <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
-                    </div>
-                    <div class="food_item_right">
-                        <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
-                        <div class="needtime">
-                            <p class="needtime_text"><span>出来上がりの目安:</span>40~50分</p>
-                            <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
                         </div>
+                    </a>
 
-                    </div>
-                </a>
-
-                <a href="menu_detail.html" class="food_item">
-                    <div class="food_item_left">
-                        <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
-                    </div>
-                    <div class="food_item_right">
-                        <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
-                        <div class="needtime">
-                            <p class="needtime_text"><span>出来上がりの目安:</span>40~50分</p>
-                            <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
+                    <a href="menu_detail.html" class="food_item">
+                        <div class="food_item_left">
+                            <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
                         </div>
+                        <div class="food_item_right">
+                            <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
+                            <div class="needtime">
+                                <p class="needtime_text"><span>出来上がりの目安:</span>40~50分</p>
+                                <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
+                            </div>
 
-                    </div>
-                </a>
-
-                <a href="menu_detail.html" class="food_item">
-                    <div class="food_item_left">
-                        <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
-                    </div>
-                    <div class="food_item_right">
-                        <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
-                        <div class="needtime">
-                            <p class="needtime_text"><span>出来上がりの目安:</span>40~50分</p>
-                            <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
                         </div>
+                    </a>
 
-                    </div>
-                </a>
+                    <a href="menu_detail.html" class="food_item">
+                        <div class="food_item_left">
+                            <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
+                        </div>
+                        <div class="food_item_right">
+                            <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
+                            <div class="needtime">
+                                <p class="needtime_text"><span>出来上がりの目安:</span>40~50分</p>
+                                <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
+                            </div>
 
-        
+                        </div>
+                    </a>
+
+                    <a href="menu_detail.html" class="food_item">
+                        <div class="food_item_left">
+                            <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
+                        </div>
+                        <div class="food_item_right">
+                            <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
+                            <div class="needtime">
+                                <p class="needtime_text"><span>出来上がりの目安:</span>40~50分</p>
+                                <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
+                            </div>
+
+                        </div>
+                    </a>
+
+                    <a href="menu_detail.html" class="food_item">
+                        <div class="food_item_left">
+                            <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
+                        </div>
+                        <div class="food_item_right">
+                            <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
+                            <div class="needtime">
+                                <p class="needtime_text"><span>出来上がりの目安:</span>40~50分</p>
+                                <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+<!-- food_item_listをコピーしてaタグを増やしていく（増やすたびにisActive === ●の値を増やす）　-->
+
+                <div class="food_item_list" v-else-if="isActive === 1">
+                    <a href="menu_detail.html" class="food_item">
+                        <div class="food_item_left">
+                            <img src="./images/BLT.jpg" alt="" class="food_item_left_img">
+                        </div>
+                        <div class="food_item_right">
+                            <p class="food_alert_label">1日10食限定</p>
+                            <p class="food_alert_menuname">チョリソーとモッツァレラチーズのニョッキ焼きああ…</p>
+                            <div class="needtime">
+                                <p class="needtime_text"><span>出来上がりの目安:</span>40分</p>
+                                <p class="food_list_price"><span class = "food_item_yen">¥</span>500</p>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+
+<!-- ここまで -->
 
             </div>
         </div>
